@@ -1,22 +1,46 @@
-import random
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as ani
+from visualize.style import PlotStyle
+
 
 arr = np.random.randint(1, 1000, size=int(input()))
 
-def bubbleSort(arr):
-    n = len(arr)
-    arr=arr
-    counter = 0
+fig, ax = plt.subplots()
 
-    while True:
+
+def bubbleSort():
+    n = len(arr)
+    counter = 0
+    iter_count = 0
+    is_sorted = False
+
+    while not is_sorted:
         for i in range(n-1):
             if arr[i] > arr[i+1]:
                 arr[i], arr[i+1] = arr[i+1], arr[i]
             else:
                 counter += 1
-        if counter == len(arr)-1:
-            return arr
+            yield (arr, i, iter_count)
+        if counter == n-1:
+            is_sorted = True
         else:
             counter = 0
+            iter_count += 1
 
-print(bubbleSort(arr))
+
+def animer(frame):
+    datums, i, iter_count = frame
+    ax.clear()
+    PlotStyle.apply(ax)
+    bars = ax.bar(range(len(arr)), datums)
+    for k in range(len(arr)):
+        if k == i+1:
+            bars[k].set_color(PlotStyle.RED)
+        else:
+            bars[k].set_color(PlotStyle.BLUE)
+
+    ax.set_title("Iteration number {}".format(iter_count))
+
+_ = ani.FuncAnimation(fig, animer, frames=bubbleSort, interval=5, blit=False, repeat=False)
+plt.show()
