@@ -1,4 +1,6 @@
 import random
+import numpy as np
+
 def bubbleSort(arr):
     n = len(arr)
     arr=arr
@@ -15,7 +17,7 @@ def bubbleSort(arr):
     else:
         counter = 0
         bubbleSort(arr)
-        
+
 arr = []
 for _ in range(int(input())):
     arr.append(random.randint(0,1000))
