@@ -42,5 +42,5 @@ def animer(frame):
 
     ax.set_title("Iteration number {}".format(iter_count))
 
-_ = ani.FuncAnimation(fig, animer, frames=bubbleSort, interval=5, blit=False, repeat=False)
+_ = ani.FuncAnimation(fig, animer, frames=bubbleSort, interval=1, blit=False, repeat=False)
 plt.show()
