@@ -1,9 +1,7 @@
-#import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as ani
 from visualize.style import PlotStyle
 import random
-import time
 
 fig, ax = plt.subplots()
 
@@ -71,10 +69,8 @@ def update(frame):
     ax.set_title("Iteration number {}".format(iter_count))
     bars = ax.bar(range(len(flat)), flat, color=colors)
 
+
 arr = [random.randint(1, 1000) for i in range(int(input()))]
-
-
-
 
 _ = ani.FuncAnimation(fig, update, frames=merge_sort, repeat=False, interval=1, blit=False)
 plt.show()
