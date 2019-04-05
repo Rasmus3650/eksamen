@@ -26,15 +26,8 @@ def merge(a,b):
 
 
 def merge_sort():
-
-    n = len(arr)
-    counter = 0
     iter_count = 0
-    is_sorted = False
-    sub_arr = arr[0:round(n / 2)]
-
     data = [[x] for x in arr]
-
 
     while len(data) > 1:
 
@@ -83,7 +76,7 @@ arr = [random.randint(1, 1000) for i in range(int(input()))]
 
 
 
-_ = ani.FuncAnimation(fig, update, frames=merge_sort, repeat=False, interval=500, blit=False)
+_ = ani.FuncAnimation(fig, update, frames=merge_sort, repeat=False, interval=1, blit=False)
 plt.show()
 
 
