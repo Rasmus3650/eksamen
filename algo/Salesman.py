@@ -54,7 +54,6 @@ for j in range(2):
         if (i != u_input - 1):
             placehold_cost = new_edges[i][i]
             route_cost += new_edges[i][i]
-            #new_edges[i + 1].remove(placehold_cost)
         else:
             placehold_cost = new_edges[i][0]
             route_cost += new_edges[i][0]
