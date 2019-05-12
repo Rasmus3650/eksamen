@@ -78,12 +78,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         clipboard = clipboard.replace("[", "")
         clipboard = clipboard.replace("]", "")
         clipboard = clipboard.split(",")
-        try:
-            cliparray = [int(clipboard[i]) for i in range(len(clipboard))]
-        except:
-            pass
+        cliparray = [int(clipboard[i]) for i in range(len(clipboard))]
 
         if type(clipboard) is list:
+
             if tal == 1:
                 self.randomizedLabel.setText("Copied From Clipboard")
             elif tal == 2:
