@@ -166,9 +166,9 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="quickSortButton">
        <property name="text">
-        <string>WIP</string>
+        <string>Quicksort</string>
        </property>
       </widget>
      </item>

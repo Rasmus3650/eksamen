@@ -73,32 +73,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.converttoarray(filecontent, 2)
 
     def converttoarray(self, userinput, tal):
-        clipboard = userinput
-        clipstr = ""
-        cliparray = []
-        if clipboard[0] == "[":
-            clipboard = clipboard[1::]
-        if clipboard[-1] == "]":
-            clipboard = clipboard[:-1:]
+        clipboard = str(userinput)
+        clipboard = clipboard.replace(" ", "")
+        clipboard = clipboard.replace("[", "")
+        clipboard = clipboard.replace("]", "")
+        clipboard = clipboard.split(",")
+        cliparray = [int(clipboard[i]) for i in range(len(clipboard))]
 
-        try:
-            for i in range(len(clipboard)):
-                if clipboard[i] != ",":
-                    clipstr += clipboard[i]
-                    int(clipstr)
-                else:
-                    cliparray.append(int(clipstr))
-                    clipstr = ""
-
-            if len(cliparray) != 0:
-                self.array = cliparray
-                if tal == 1:
-                    self.randomizedLabel.setText("Copied From Clipboard")
-                elif tal == 2:
-                    self.randomizedLabel.setText("Copied From File")
+        if type(clipboard) is list:
+            self.clip
+            if tal == 1:
+                self.randomizedLabel.setText("Copied From Clipboard")
+            elif tal == 2:
+                self.randomizedLabel.setText("Copied From File")
             else:
-                self.randomizedLabel.setText("Not A Valid Array")
-        except:
+                self.randomizedLabel.setText("What the actual fuck")
+        else:
             self.randomizedLabel.setText("Not A Valid Array")
 
     def exit(self):
@@ -111,4 +101,4 @@ if __name__ == "__main__":
     window.show()
     sys.exit(app.exec_())
 
-#[5, 3, 2, 1, 7, 4, 8]
+#[5,3,2,1,7,4,8]
