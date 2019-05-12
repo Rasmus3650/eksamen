@@ -35,7 +35,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         validator1 = QIntValidator(0, 999, self)
         self.arrayLengthEdit.setValidator(validator1)
         self.randomizeArrayButton.clicked.connect(self.randomarray)
-        self.actionExit.triggered.connect(self.exit)
         self.mergeSortButton.clicked.connect(self.mergesortarray)
         self.bubbleSortButton.clicked.connect(self.bubblesortarray)
         self.quickSortButton.clicked.connect(self.quicksortarray)
