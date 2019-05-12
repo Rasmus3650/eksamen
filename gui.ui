@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="cursor">
-   <cursorShape>WaitCursor</cursorShape>
+   <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string notr="true">Algorithmes</string>
@@ -26,17 +26,20 @@
       <height>381</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <widget class="QWidget" name="sorting">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string notr="true">Sorting Algorithmes</string>
      </attribute>
      <widget class="QRadioButton" name="radioRandom">
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>0</y>
+        <y>21</y>
         <width>111</width>
-        <height>17</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -53,7 +56,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>20</y>
         <width>601</width>
         <height>161</height>
        </rect>
@@ -95,9 +98,9 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>0</y>
+        <y>22</y>
         <width>81</width>
-        <height>16</height>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
@@ -111,7 +114,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>20</y>
         <width>601</width>
         <height>161</height>
        </rect>
@@ -163,12 +166,16 @@
         <string>Randomize Array</string>
        </property>
       </widget>
+      <zorder>arrayLengthEdit</zorder>
+      <zorder>label</zorder>
+      <zorder>randomizeArrayButton</zorder>
+      <zorder>radioRandom</zorder>
      </widget>
      <widget class="QLabel" name="randomizedLabel">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>140</y>
+        <y>160</y>
         <width>601</width>
         <height>21</height>
        </rect>
@@ -184,7 +191,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>160</y>
+        <y>180</y>
         <width>601</width>
         <height>151</height>
        </rect>
@@ -220,10 +227,16 @@
        </item>
       </layout>
      </widget>
+     <zorder>fixedRadioFrame</zorder>
+     <zorder>randomRadioFrame</zorder>
+     <zorder>randomizedLabel</zorder>
+     <zorder>gridLayoutWidget</zorder>
+     <zorder>radioFixed</zorder>
+     <zorder>radioRandom</zorder>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="neural">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Neural Network</string>
      </attribute>
     </widget>
    </widget>
