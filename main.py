@@ -1,3 +1,58 @@
-'''
-Main module
-'''
+import sys
+import os
+import random
+import numpy as np
+from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from PyQt5.QtGui import *
+
+########## Ui til Py ##########
+fin = open("gui.ui", 'r')
+fout = open("gui.py", 'w')
+uic.compileUi(fin, fout, execute=False)
+fin.close()
+fout.close()
+###############################
+
+from gui import Ui_MainWindow
+
+
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        Ui_MainWindow.__init__(self)
+        self.array = []
+        self.setupUi(self)
+        self.fixedRadioFrame.hide()
+        self.radioRandom.setChecked(True)
+        self.radioRandom.toggled.connect(self.radiohide)
+        self.radioFixed.toggled.connect(self.radiohide)
+        validator1 = QIntValidator(0, 999, self)
+        self.arrayLengthEdit.setValidator(validator1)
+        self.randomizeArrayButton.clicked.connect(self.randomarray)
+        self.actionExit.triggered.connect(self.exit)
+        self.actionRestart.triggered.connect(self.restart)
+
+    def radiohide(self):
+        if self.radioRandom.isChecked():
+            self.randomRadioFrame.show()
+            self.fixedRadioFrame.hide()
+        else:
+            self.randomRadioFrame.hide()
+            self.fixedRadioFrame.show()
+
+    def randomarray(self):
+        if self.arrayLengthEdit.text() != "":
+            self.array = [random.randint(1, 1000) for i in range(int(self.arrayLengthEdit.text()))]
+            self.randomizedLabel.setText("Randomized")
+        else:
+            self.randomizedLabel.setText("Insert Number")
+
+    def exit(self):
+        exit()
+
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
