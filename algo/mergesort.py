@@ -9,9 +9,7 @@ class Mergesort(object):
     def __init__(self, array):
         self.fig, self.ax = plt.subplots()
         self.arr = array
-        print(self.arr)
         self.data =[[x] for x in self.arr]
-        print(self.data)
         self.data.insert(0, [12])
         self.data.insert(0, [12])
         self.start()
