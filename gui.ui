@@ -102,22 +102,6 @@
       <string>Randomize Array</string>
      </property>
     </widget>
-    <widget class="QLabel" name="randomizedLabel">
-     <property name="geometry">
-      <rect>
-       <x>6</x>
-       <y>140</y>
-       <width>591</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="fixedRadioFrame">
     <property name="enabled">
@@ -137,22 +121,6 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="radioFixedStateLabel">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>90</y>
-       <width>761</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QPushButton" name="openFileButton">
      <property name="geometry">
       <rect>
@@ -220,11 +188,28 @@
      </item>
     </layout>
    </widget>
-   <zorder>fixedRadioFrame</zorder>
+   <widget class="QLabel" name="randomizedLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>160</y>
+      <width>601</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>randomRadioFrame</zorder>
+   <zorder>fixedRadioFrame</zorder>
    <zorder>radioFixed</zorder>
    <zorder>radioRandom</zorder>
    <zorder>gridLayoutWidget</zorder>
+   <zorder>randomizedLabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
