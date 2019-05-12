@@ -4,6 +4,8 @@ import random
 import numpy as np
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtGui import *
+from eksamen.algo.mergesort import Mergesort
+from eksamen.algo.bubblesort import Bubblesort
 
 ########## Ui til Py ##########
 fin = open("gui.ui", 'r')
@@ -13,7 +15,7 @@ fin.close()
 fout.close()
 ###############################
 
-from gui import Ui_MainWindow
+from eksamen.gui import Ui_MainWindow
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -26,11 +28,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.radioRandom.setChecked(True)
         self.radioRandom.toggled.connect(self.radiohide)
         self.radioFixed.toggled.connect(self.radiohide)
+        #Validator til at sørge for man ikke kan lave et random array der er større end 999
         validator1 = QIntValidator(0, 999, self)
         self.arrayLengthEdit.setValidator(validator1)
         self.randomizeArrayButton.clicked.connect(self.randomarray)
         self.actionExit.triggered.connect(self.exit)
-        self.actionRestart.triggered.connect(self.restart)
+        self.mergeSortButton.clicked.connect(self.mergesortarray)
+        self.bubbleSortButton.clicked.connect(self.bubblesortarray)
 
     def radiohide(self):
         if self.radioRandom.isChecked():
@@ -46,6 +50,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.randomizedLabel.setText("Randomized")
         else:
             self.randomizedLabel.setText("Insert Number")
+
+    def mergesortarray(self):
+        Mergesort(self.array)
+
+    def bubblesortarray(self):
+        Bubblesort(self.array)
 
     def exit(self):
         exit()

@@ -1,13 +1,16 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as ani
-from visualize.style import PlotStyle
+from eksamen.visualize.style import PlotStyle
 import random
 import time
 
 
-class Mergesort():
-    fig, ax = plt.subplots()
-    arr = [random.randint(1, 1000) for i in range(int(input()))]
+class Mergesort(object):
+    def __init__(self, array):
+        self.fig, self.ax = plt.subplots()
+        self.arr = array
+        self.data =[[x] for x in self.arr]
+        self.start()
 
     def merge(self, a, b):
         merged = []
@@ -26,10 +29,10 @@ class Mergesort():
             del b[0]
         return merged
 
-    def merge_sort(self, arr, merge):
+    def merge_sort(self):
+        data = self.data
         start_tid = time.time()
         iter_count = 0
-        data = [[x] for x in arr]
 
         while len(data) > 1:
 
@@ -39,7 +42,7 @@ class Mergesort():
                 if i % 2 == 1:
                     continue
                 try:
-                    nd.append(merge(data[i], data[i + 1]))
+                    nd.append(self.merge(data[i], data[i + 1]))
                 except IndexError:
                     nd.append(data.pop(-1))
 
@@ -47,7 +50,8 @@ class Mergesort():
             iter_count += 1
             data = nd
 
-    def update(self, frame, ax):
+    def update(self, frame):
+        ax = self.ax
         i, nd, datums, iter_count, start_tid = frame
         flat = []
         colors = []
@@ -69,6 +73,7 @@ class Mergesort():
         ax.set_title("Iteration number: {0}   Time: {1}".format(iter_count, round(time.time() - start_tid, 2)))
         bars = ax.bar(range(len(flat)), flat, color=colors)
 
-    def start(self, fig, update, merge_sort):
-        _ = ani.FuncAnimation(fig, update, frames=merge_sort, repeat=False, interval=1, blit=False)
+    def start(self):
+        _ = ani.FuncAnimation(self.fig, self.update, frames=self.merge_sort, repeat=False, interval=1, blit=False)
         plt.show()
+

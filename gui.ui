@@ -180,10 +180,51 @@
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>180</y>
+      <width>601</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="bubbleSortButton">
+       <property name="text">
+        <string>Bubblesort</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>WIP</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="mergeSortButton">
+       <property name="text">
+        <string>Mergesort</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="text">
+        <string>WIP</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>fixedRadioFrame</zorder>
    <zorder>randomRadioFrame</zorder>
    <zorder>radioFixed</zorder>
    <zorder>radioRandom</zorder>
+   <zorder>gridLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
