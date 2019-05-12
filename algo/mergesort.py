@@ -9,7 +9,11 @@ class Mergesort(object):
     def __init__(self, array):
         self.fig, self.ax = plt.subplots()
         self.arr = array
+        print(self.arr)
         self.data =[[x] for x in self.arr]
+        print(self.data)
+        self.data.insert(0, [12])
+        self.data.insert(0, [12])
         self.start()
 
     def merge(self, a, b):
@@ -30,25 +34,24 @@ class Mergesort(object):
         return merged
 
     def merge_sort(self):
-        data = self.data
         start_tid = time.time()
         iter_count = 0
 
-        while len(data) > 1:
+        while len(self.data) > 1:
 
             nd = []
-            for i in range(len(data)):
+            for i in range(len(self.data)):
 
                 if i % 2 == 1:
                     continue
                 try:
-                    nd.append(self.merge(data[i], data[i + 1]))
+                    nd.append(self.merge(self.data[i], self.data[i + 1]))
                 except IndexError:
-                    nd.append(data.pop(-1))
+                    nd.append(self.data.pop(-1))
 
-                yield (i, nd, data, iter_count,start_tid)
+                yield (i, nd, self.data, iter_count,start_tid)
             iter_count += 1
-            data = nd
+            self.data = nd
 
     def update(self, frame):
         ax = self.ax
