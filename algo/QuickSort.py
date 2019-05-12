@@ -10,9 +10,15 @@ class Quicksort(object):
     def __init__(self, array):
         self.fig, self.ax = plt.subplots()
         self.arr = array
+        self.iter_count = 0
+        self.start_time = time.time()
         self.start()
 
+
+
     def quicksort(self, x):
+
+
         if len(x) == 1 or len(x) == 0:
             return x
         else:
@@ -23,6 +29,7 @@ class Quicksort(object):
                     x[j+1],x[i+1] = x[i+1], x[j+1]
                     i += 1
             x[0],x[i] = x[i],x[0]
+            yield (x, i, self.iter_count, self.start_time)
             first_part = self.quicksort(x[:i])
             second_part = self.quicksort(x[i+1:])
             first_part.append(x[i])
