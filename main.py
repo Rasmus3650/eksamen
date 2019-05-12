@@ -70,12 +70,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.converttoarray(str(pyperclip.paste()), 1)
 
     def openfilearray(self):
-        file = QFileDialog.Options()
-        file |= QFileDialog.DontUseNativeDialog
-        filename, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "", "All Files (*);;Json Files (*.json);;Text Files (*.txt);;CSV Files (*.csv)", options=file)
-        fil = open(filename, "r")
-        filecontent = fil.read()
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        filename, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "", "All Files (*);;Json Files (*.json);;Text Files (*.txt);;CSV Files (*.csv)", options=options)
+        file = open(filename, "r")
+        filecontent = file.read()
         self.converttoarray(filecontent, 2)
+        file.close()
 
     def converttoarray(self, userinput, tal):
         clipboard = str(userinput)
