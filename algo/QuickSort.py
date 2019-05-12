@@ -10,14 +10,17 @@ class Quicksort(object):
     def __init__(self, array):
         self.fig, self.ax = plt.subplots()
         self.arr = array
-        self.iter_count = 0
+        self.iter_count = -1
         self.start_time = time.time()
         self.start()
 
 
 
     def quicksort(self, x):
-
+        self.iter_count += 1
+        if (self.iter_count == 0):
+            x = self.arr
+        print(x)
 
         if len(x) == 1 or len(x) == 0:
             return x
@@ -29,7 +32,7 @@ class Quicksort(object):
                     x[j+1],x[i+1] = x[i+1], x[j+1]
                     i += 1
             x[0],x[i] = x[i],x[0]
-            yield (x, i, self.iter_count, self.start_time)
+            yield (x, i)
             first_part = self.quicksort(x[:i])
             second_part = self.quicksort(x[i+1:])
             first_part.append(x[i])
@@ -40,7 +43,7 @@ class Quicksort(object):
         arr = self.arr
         fig = self.fig
         ax = self.ax
-        datums, i, iter_count, start_time = frame
+        datums, i, = frame
         ax.clear()
         PlotStyle.apply(ax)
         bars = ax.bar(range(len(arr)), datums)
@@ -50,7 +53,7 @@ class Quicksort(object):
             else:
                 bars[k].set_color(PlotStyle.BLUE)
 
-        ax.set_title("Iteration number {0}  Time: {1}".format(iter_count, round(time.time() - start_time, 2)))
+        ax.set_title("Iteration number {0}  Time: {1}".format(self.iter_count, round(time.time() - self.start_time, 2)))
 
     def start(self):
         _ = ani.FuncAnimation(self.fig, self.animer, frames=self.quicksort, interval=1, blit=False, repeat=False)
