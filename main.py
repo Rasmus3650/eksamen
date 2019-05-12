@@ -80,17 +80,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         clipboard = clipboard.split(",")
         try:
             cliparray = [int(clipboard[i]) for i in range(len(clipboard))]
-        except:
-            pass
-
-        if type(clipboard) is list:
+            self.array = cliparray
             if tal == 1:
                 self.randomizedLabel.setText("Copied From Clipboard")
             elif tal == 2:
                 self.randomizedLabel.setText("Copied From File")
             else:
                 self.randomizedLabel.setText("What the actual fuck")
-        else:
+        except:
             self.randomizedLabel.setText("Not A Valid Array")
 
     def exit(self):
@@ -103,4 +100,4 @@ if __name__ == "__main__":
     window.show()
     sys.exit(app.exec_())
 
-#[5,3,2,1,7,4,8]
+#[5, 3, 2, 1, 7, 4, 8]
