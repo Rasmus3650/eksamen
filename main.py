@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFil
 from PyQt5.QtGui import *
 from eksamen.algo.mergesort import Mergesort
 from eksamen.algo.bubblesort import Bubblesort
-from eksamen.algo.QuickSort import Quicksort
+from eksamen.algo.Quicksort import Quicksort
 
 ########## Ui til Py ##########
 fin = open("gui.ui", 'r')
@@ -63,7 +63,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         Bubblesort(self.array)
 
     def quicksortarray(self):
-        Quicksort(self.array)
+        Quicksort(self.array, 0, len(self.array) - 1)
 
     def copyclipboard(self):
         self.converttoarray(str(pyperclip.paste()), 1)
