@@ -90,8 +90,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.randomizedLabel.setText("Copied From Clipboard")
             elif tal == 2:
                 self.randomizedLabel.setText("Copied From File")
-            else:
-                self.randomizedLabel.setText("What the actual fuck")
         except:
             self.randomizedLabel.setText("Not A Valid Array")
 
