@@ -71,7 +71,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def openfilearray(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        filename, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "", "All Files (*);;Json Files (*.json);;Text Files (*.txt);;CSV Files (*.csv)", options=options)
+        filename, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()",
+                                                  "", "All Files (*);;Json Files (*.json);;Text Files (*.txt);;CSV Files (*.csv)", options=options)
         file = open(filename, "r")
         filecontent = file.read()
         self.converttoarray(filecontent, 2)
