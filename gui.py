@@ -75,9 +75,9 @@ class Ui_MainWindow(object):
         self.mergeSortButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_2)
         self.mergeSortButton.setObjectName("mergeSortButton")
         self.horizontalLayout_2.addWidget(self.mergeSortButton)
-        self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_2)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.quickSortButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_2)
+        self.quickSortButton.setObjectName("quickSortButton")
+        self.horizontalLayout_2.addWidget(self.quickSortButton)
         self.fixedRadioFrame.raise_()
         self.randomRadioFrame.raise_()
         self.randomizedLabel.raise_()
@@ -122,7 +122,7 @@ class Ui_MainWindow(object):
         self.actionRestart.setObjectName("actionRestart")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         self.randomizeArrayButton.setText(_translate("MainWindow", "Randomize Array"))
         self.bubbleSortButton.setText(_translate("MainWindow", "Bubblesort"))
         self.mergeSortButton.setText(_translate("MainWindow", "Mergesort"))
-        self.pushButton.setText(_translate("MainWindow", "Quicksort"))
+        self.quickSortButton.setText(_translate("MainWindow", "Quicksort"))
         self.neuralButton221.setText(_translate("MainWindow", "Neural Network 2-2-1"))
         self.neuralButton21.setText(_translate("MainWindow", "Neural Network 2-1"))
         self.label_3.setText(_translate("MainWindow", "Iterations:"))

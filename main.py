@@ -42,6 +42,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.bubbleSortButton.clicked.connect(self.bubblesortarray)
         self.copyClipboardButton.clicked.connect(self.copyclipboard)
         self.openFileButton.clicked.connect(self.openfilearray)
+        self.quickSortButton.clicked.connect(self.quicksortarray)
 
     def radiohide(self):
         if self.radioRandom.isChecked():
@@ -63,6 +64,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def bubblesortarray(self):
         Bubblesort(self.array)
+
+    def quicksortarray(self):
+        pass
 
     def copyclipboard(self):
         self.converttoarray(str(pyperclip.paste()), 1)
