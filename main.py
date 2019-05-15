@@ -9,6 +9,8 @@ from PyQt5.QtGui import *
 from eksamen.algo.mergesort import Mergesort
 from eksamen.algo.bubblesort import Bubblesort
 from eksamen.algo.QuickSort import Quicksort
+from eksamen.algo.NeuralNetwork21 import NeuralNetwork21
+from eksamen.algo.NeuralNetwork221 import OurNeuralNetwork
 
 ########## Ui til Py ##########
 fin = open("gui.ui", 'r')
@@ -43,6 +45,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.copyClipboardButton.clicked.connect(self.copyclipboard)
         self.openFileButton.clicked.connect(self.openfilearray)
         self.quickSortButton.clicked.connect(self.quicksortarray)
+        self.neuralButton21.clicked.connect(self.neural21)
+        self.neuralButton221.clicked.connect(self.neural221)
 
     def radiohide(self):
         if self.radioRandom.isChecked():
@@ -66,7 +70,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         Bubblesort(self.array)
 
     def quicksortarray(self):
-        pass
+        Quicksort(self.array ,0, len(self.array) - 1)
+
+    def neural21(self):
+        self.iter = int(self.neuralLineEdit.text())
+        NeuralNetwork21(self.iter)
+
+
+    def neural221(self):
+        self.iter = int(self.neuralLineEdit.text())
+        OurNeuralNetwork(self.iter)
 
     def copyclipboard(self):
         self.converttoarray(str(pyperclip.paste()), 1)
