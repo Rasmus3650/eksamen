@@ -52,11 +52,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.fixedRadioFrame.show()
 
     def randomarray(self):
-        if self.arrayLengthEdit.text() != "":
+        if self.arrayLengthEdit.text() != "" and int(self.arrayLengthEdit.text()) > 1:
             self.array = [random.randint(1, 1000) for i in range(int(self.arrayLengthEdit.text()))]
             self.randomizedLabel.setText("Randomized")
         else:
-            self.randomizedLabel.setText("Insert Number")
+            self.randomizedLabel.setText("Insert Number above 1")
 
     def mergesortarray(self):
         Mergesort(self.array)
