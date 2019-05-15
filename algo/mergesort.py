@@ -77,4 +77,3 @@ class Mergesort(object):
     def start(self):
         _ = ani.FuncAnimation(self.fig, self.update, frames=self.merge_sort, repeat=False, interval=1, blit=False)
         plt.show()
-

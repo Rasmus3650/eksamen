@@ -70,12 +70,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         Bubblesort(self.array)
 
     def quicksortarray(self):
-        Quicksort(self.array ,0, len(self.array) - 1)
+        Quicksort(self.array, 0, len(self.array) - 1)
 
     def neural21(self):
         self.iter = int(self.neuralLineEdit.text())
         NeuralNetwork21(self.iter)
-
 
     def neural221(self):
         self.iter = int(self.neuralLineEdit.text())
