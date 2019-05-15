@@ -33,11 +33,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.radioFixed.toggled.connect(self.radiohide)
         #Validator til at sørge for man ikke kan lave et random array der er større end 999
         validator1 = QIntValidator(0, 999, self)
+        #Validator til at sørge for at neural networks ikke går over 1.000.000 iterations
+        validator2 = QIntValidator(0, 1000000, self)
         self.arrayLengthEdit.setValidator(validator1)
+        self.neuralLineEdit.setValidator(validator2)
         self.randomizeArrayButton.clicked.connect(self.randomarray)
         self.mergeSortButton.clicked.connect(self.mergesortarray)
         self.bubbleSortButton.clicked.connect(self.bubblesortarray)
-        self.quickSortButton.clicked.connect(self.quicksortarray)
         self.copyClipboardButton.clicked.connect(self.copyclipboard)
         self.openFileButton.clicked.connect(self.openfilearray)
 
@@ -61,9 +63,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def bubblesortarray(self):
         Bubblesort(self.array)
-
-    def quicksortarray(self):
-        Quicksort(self.array)
 
     def copyclipboard(self):
         self.converttoarray(str(pyperclip.paste()), 1)

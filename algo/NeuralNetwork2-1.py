@@ -58,7 +58,7 @@ def train():
     w2 = np.random.randn()
     b = np.random.randn()
 
-    iterations = 100000
+    iterations = 10000
     learning_rate = 0.2
     costs = []  # keep costs during training, see if they go down
 

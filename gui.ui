@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>401</height>
+    <width>602</width>
+    <height>311</height>
    </rect>
   </property>
   <property name="cursor">
@@ -23,7 +23,7 @@
       <x>0</x>
       <y>0</y>
       <width>601</width>
-      <height>381</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -166,10 +166,6 @@
         <string>Randomize Array</string>
        </property>
       </widget>
-      <zorder>arrayLengthEdit</zorder>
-      <zorder>label</zorder>
-      <zorder>randomizeArrayButton</zorder>
-      <zorder>radioRandom</zorder>
      </widget>
      <widget class="QLabel" name="randomizedLabel">
       <property name="geometry">
@@ -192,8 +188,8 @@
        <rect>
         <x>0</x>
         <y>180</y>
-        <width>601</width>
-        <height>151</height>
+        <width>591</width>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -204,24 +200,10 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="quickSortButton">
-         <property name="text">
-          <string>Quicksort</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <widget class="QPushButton" name="mergeSortButton">
          <property name="text">
           <string>Mergesort</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_5">
-         <property name="text">
-          <string>WIP</string>
          </property>
         </widget>
        </item>
@@ -238,6 +220,68 @@
      <attribute name="title">
       <string>Neural Network</string>
      </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>150</y>
+        <width>591</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="neuralButton221">
+         <property name="text">
+          <string>Neural Network 2-2-1</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="neuralButton21">
+         <property name="text">
+          <string>Neural Network 2-1</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLineEdit" name="neuralLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>70</y>
+        <width>531</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="neuralErrorLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>120</y>
+        <width>531</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Iterations</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
