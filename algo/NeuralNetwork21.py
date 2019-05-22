@@ -108,7 +108,6 @@ class NeuralNetwork21(object):
 
 
     def start(self, iter, data):
-        print("start")
         costs, w1, w2, b = self.train(iter, data)
         mystery_pred = self.sigmoid((self.mystery_flower[0] * w1) + (self.mystery_flower[1] * w2) + b)
         print("Mystery: " + str(mystery_pred))
