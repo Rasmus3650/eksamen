@@ -110,6 +110,6 @@ class NeuralNetwork21(object):
     def start(self, iter, data):
         print("start")
         costs, w1, w2, b = self.train(iter, data)
-
+        print("Mystery: " + str(self.sigmoid((self.mystery_flower[0] * w1) + (self.mystery_flower[1] * w2) + b)))
         fig = plt.plot(costs)
         plt.show(fig)
