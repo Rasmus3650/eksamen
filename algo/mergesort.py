@@ -5,6 +5,7 @@ import random
 import time
 
 
+# Vi har skabt vores mergesort algoritme inde i en class, så vi nemt kan kalde den fra vores main fil
 class Mergesort(object):
     def __init__(self, array):
         self.fig, self.ax = plt.subplots()
