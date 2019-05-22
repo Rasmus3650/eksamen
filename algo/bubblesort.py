@@ -8,7 +8,7 @@ import time
 class Bubblesort(object):
     def __init__(self, array):
         self.fig, self.ax = plt.subplots()
-        self.arr = array
+        self.arr = [x for x in array]
         self.start()
 
     def bubblesort(self):
@@ -35,7 +35,7 @@ class Bubblesort(object):
                 # Ellers så bliver counter +=1 og den går videre
                     counter += 1
                 # Vi bruger yield da vi kan sende data ud af funktionen men den gemmer staten af funktionen
-                # Så det er at den kan fortsætte, dette ville ikke ske hvis vi brugte return
+                # Så det er at den kan fortsætte loopet, dette ville ikke være muligt hvis vi brugte return
                 yield (arr, i, iter_count, start_time)
             # Hvis counter er lig med længden af arrayet
             if counter == n-1:

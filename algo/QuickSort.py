@@ -7,7 +7,7 @@ from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
 
 class Quicksort():
-    def __init__(self,array, start, end):
+    def __init__(self, array, start, end):
         # Vi tager imod 3 inputs, array'et der skal sorteres, start og end (start er altid 0, og end er altid længden af arrayet minus 1)
         self.array = array
         # print(self.array)
