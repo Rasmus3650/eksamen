@@ -21,29 +21,20 @@ class Neuron:
 
 weights = np.array([0, 1]) # w1 = 0, w2 = 1
 bias = 4                   # b = 4
-#n = Neuron(weights, bias)
-
-
-#print(n.feedforward(x))    # 0.9990889488055994
-
-
-
-
-#print(mse_loss(y_true, y_pred)) # 0.5
 
 
 class OurNeuralNetwork(object):
     '''
-    A neural network with:
+    Et neuralt netværk med:
     - 2 inputs
-    - a hidden layer with 2 neurons (h1, h2)
-    - an output layer with 1 neuron (o1)
+    - et "hidden layer" med 2 neuroner (h1, h2)
+    - et "output layer" med 1 neuron (o1)
     '''
 
     def __init__(self, iter):
         self.iter = iter
 
-        # Define dataset
+        # Definer dataset
         self.data = np.array([
             [-2, -1],  # Alice
             [25, 6],  # Bob
@@ -78,26 +69,32 @@ class OurNeuralNetwork(object):
         #print("b1: " + str(self.b1))
         #print("b2: " + str(self.b2))
         #print("b3: " + str(self.b3))
+
+        #"svarene" på vores træningsdata
         self.y_true = np.array([1, 0, 0, 1])
+
+        #Vores inputs
         self.x = np.array([2, 3])  # x1 = 2, x2 = 3
+
+        #Vores predictions
         self.y_pred = np.array([0, 0, 0, 0])
         self.start(self.iter, self.data, self.all_y_trues, self.y_true, self.x, self.y_pred)
 
     def sigmoid(self, x):
-        # Our activation function: f(x) = 1 / (1 + e^(-x))
+        # Vores "activation function": f(x) = 1 / (1 + e^(-x))
         return 1 / (1 + np.exp(-x))
 
     def deriv_sigmoid(self, x):
-        # Derivative of sigmoid: f'(x) = f(x) * (1 - f(x))
+        # Den afledte af sigmoid: f'(x) = f(x) * (1 - f(x))
         fx = self.sigmoid(x)
         return fx * (1 - fx)
 
     def feedforward(self, x_pre):
-        # x is a numpy array with 2 elements.
+        # x er et numpy array med 2 elementer.
         x = [-1, -1]
-        x[0] = (x_pre[0] - 135)
-        x[1] = (x_pre[1] - 66)
-        #print(x)
+        x[0] = (x_pre[0])# - 135)
+        x[1] = (x_pre[1])# - 66)
+
         h1 = self.sigmoid(self.w1 * x[0] + self.w2 * x[1] + self.b1)
         h2 = self.sigmoid(self.w3 * x[0] + self.w4 * x[1] + self.b2)
         o1 = self.sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
@@ -169,7 +166,7 @@ class OurNeuralNetwork(object):
             # --- Calculate total loss at the end of each epoch
             if epoch % 100 == 0:
                 y_preds = np.apply_along_axis(self.feedforward, 1, data)
-                loss = 0.5 - float(Neuron(2,1).mse_loss(all_y_trues, y_preds))
+                loss = float(Neuron(2,1).mse_loss(all_y_trues, y_preds))
                 print("Epoch %d loss: %.3f" % (epoch, loss))
                 losses.append(loss)
 
