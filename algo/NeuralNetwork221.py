@@ -182,8 +182,8 @@ class OurNeuralNetwork(object):
         #network = OurNeuralNetwork(iter)
         OurNeuralNetwork.train(self, data, all_y_trues, iter, y_true, x, y_pred)
 
-        emily = np.array([128, 63])  # 128 pounds, 63 inches
-        frank = np.array([155, 68])  # 155 pounds, 68 inches
+        emily = np.array([-7, -3])  # 128 pounds, 63 inches
+        frank = np.array([20, 2])  # 155 pounds, 68 inches
         print("Emily: %.3f" % OurNeuralNetwork.feedforward(self, emily))  # - F
         print("Frank: %.3f" % OurNeuralNetwork.feedforward(self, frank))  # - M
 
