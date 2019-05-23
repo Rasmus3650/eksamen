@@ -103,9 +103,9 @@ class OurNeuralNetwork(object):
     def train(self, data, all_y_trues, iter, y_true, x, y_pred):
 
         '''
-        - data is a (n x 2) numpy array, n = # of samples in the dataset.
-        - all_y_trues is a numpy array with n elements.
-        Elements in all_y_trues correspond to those in data.
+        - data er et (n x 2) numpy array, n = antallet af data i datasættet.
+        - all_y_trues er et numpy array med n elementer.
+        Elementer i all_y_trues er det samme som dem i data.
         '''
         learn_rate = 0.2
         epochs = iter  # number of times to loop through the entire dataset
@@ -114,7 +114,7 @@ class OurNeuralNetwork(object):
 
             for self.x, self.y_true in zip(data, all_y_trues):
 
-                # --- Do a feedforward (we'll need these values later)
+                # --- Laver et feedforward (Vi får brug for værdierne senere)
                 sum_h1 = self.w1 * self.x[0] + self.w2 * self.x[1] + self.b1
                 h1 = self.sigmoid(sum_h1)
 
@@ -125,8 +125,8 @@ class OurNeuralNetwork(object):
                 o1 = self.sigmoid(sum_o1)
                 self.y_pred = o1
 
-                # --- Calculate partial derivatives.
-                # --- Naming: d_L_d_w1 represents "partial L / partial w1"
+                # --- Beregner den dummen af den afledte funktion
+                # --- Navngivning: d_L_d_w1 er "afledt L / afledt w1"
                 d_L_d_ypred = -2 * (self.y_true - self.y_pred)
 
                 # Neuron o1
@@ -147,7 +147,7 @@ class OurNeuralNetwork(object):
                 d_h2_d_w4 = x[1] * self.deriv_sigmoid(sum_h2)
                 d_h2_d_b2 = self.deriv_sigmoid(sum_h2)
 
-                # --- Update weights and biases
+                # --- Updaterer vægte og biases
                 # Neuron h1
                 self.w1 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w1
                 self.w2 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w2
@@ -163,7 +163,7 @@ class OurNeuralNetwork(object):
                 self.w6 -= learn_rate * d_L_d_ypred * d_ypred_d_w6
                 self.b3 -= learn_rate * d_L_d_ypred * d_ypred_d_b3
 
-            # --- Calculate total loss at the end of each epoch
+            # --- Berenger hele loss i slutningen af hver iteration
             if epoch % 100 == 0:
                 y_preds = np.apply_along_axis(self.feedforward, 1, data)
                 loss = float(Neuron(2,1).mse_loss(all_y_trues, y_preds))
@@ -174,9 +174,7 @@ class OurNeuralNetwork(object):
         plt.show()
 
     def start(self, iter, data, all_y_trues, y_true, x, y_pred):
-        print("start")
-        # Train our neural network!
-        #network = OurNeuralNetwork(iter)
+        # Træner vores neurale netværk!
         OurNeuralNetwork.train(self, data, all_y_trues, iter, y_true, x, y_pred)
 
         emily = np.array([-7, -3])  # 128 pounds, 63 inches
